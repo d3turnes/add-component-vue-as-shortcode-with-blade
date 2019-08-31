@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 
-class PostController extends Controller
-{
-    public function index(Request $request) {
+class PostController extends Controller {
+	
+	public function index(Request $request) {
 		
 		$posts = Post::paginate(10);
 		
@@ -31,4 +31,5 @@ class PostController extends Controller
 		
 		return abort('404');
 	}
+	
 }
