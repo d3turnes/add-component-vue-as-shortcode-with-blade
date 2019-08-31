@@ -12,7 +12,6 @@ class PostController extends Controller {
 		$posts = Post::paginate(10);
 		
 		return view('posts.index', compact('posts'));
-		
 	}
 		
 	public function show(Request $request, $slug) {
@@ -28,7 +27,6 @@ class PostController extends Controller {
 				
 			return view('posts.single', compact('page'));		
 		}
-		
 		return abort('404');
 	}
 }
