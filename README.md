@@ -62,3 +62,54 @@ class PostController extends Controller {
 	}
 }
 ```
+
+# Creamos las respectivas vistas
+
+resources/views/posts/index.blade.php
+
+```php
+@extends('master')
+
+@section('content')
+<div class="row">
+	<div class="col-md-12">
+		@foreach($posts as $post)
+		<h1><a href="{{ route('posts.show', ['slug' => $post->slug]) }}">{{$post->title}}</a></h1>
+		<hr />
+		@endforeach
+	</div>
+</div>
+@endsection
+```
+
+resources/views/posts/single.blade.php
+
+```php
+@extends('master')
+
+@section('content')
+<div class="row">
+	<div class="col-md-12">
+		<h1>{{$page->title}}</h1>
+		{!! $page->body !!}
+	</div>
+</div>
+@endsection
+```
+
+A partir de ahora cada vez que se añada en el campo body de la entrada post por uno de los siguientes códidos éste será remplazado por un componente de vue.
+
+```php
+<!--//<example-component name="example"></example-component>//-->
+```
+
+or
+
+```php
+[example-component name="example"][/example-componnet]
+```
+en ambos caso será remplazado por
+
+```php
+<example-component name="example"></example-component>
+```
