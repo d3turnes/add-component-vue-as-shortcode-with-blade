@@ -17,16 +17,16 @@ class PostController extends Controller {
 		
 	public function show(Request $request, $slug) {
 		
-		$page = Post::where('slug', '=', $slug)->first();
-		if (!is_null($page)) {		
+		$post = Post::where('slug', '=', $slug)->first();
+		if (!is_null($post)) {		
 			
 			//<!--//<example-component name="example"></example-component>//--> 
-			$page->body = str_replace("&lt;","<",str_replace("&gt;",">",preg_replace('/&lt;!--\\/\\/(.*)\\/\\/--&gt;/i', '${1}', $page->body, -1)));
+			$post->body = str_replace("&lt;","<",str_replace("&gt;",">",preg_replace('/&lt;!--\\/\\/(.*)\\/\\/--&gt;/i', '${1}', $post->body, -1)));
 			
 			//[example-component name="example"][/example-component]
-			$page->body = preg_replace('/\[(.*?)\]/i','<${1}>', $page->body, -1);
+			$post->body = preg_replace('/\[(.*?)\]/i','<${1}>', $post->body, -1);
 				
-			return view('posts.single', compact('page'));		
+			return view('posts.single', compact('post'));		
 		}
 		
 		return abort('404');
