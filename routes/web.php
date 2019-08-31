@@ -13,6 +13,7 @@
 
 Route::get('/', 'HomeController@index');
 Route::resource('/posts', 'PostController', ['only' => ['index', 'show']]);
+/*
 Route::group(['prefix' => 'admin'], function () {
 	Voyager::routes();
-});
+});*/
