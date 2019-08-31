@@ -113,3 +113,9 @@ en ambos caso será remplazado por
 ```php
 <example-component name="example"></example-component>
 ```
+
+![edit](https://github.com/d3turnes/storage/blob/master/shortcode/edit.png)
+
+# Resultado
+
+![single](https://github.com/d3turnes/storage/blob/master/shortcode/single.png)
